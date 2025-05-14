@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors")
 require("./db/config");
@@ -271,4 +272,7 @@ function verification(req, resp, next) {
 }
 
 // app.listen(PORT);
-app.listen(5000);
+app.listen(5000, () => {
+    console.log("server is running ");
+
+});
