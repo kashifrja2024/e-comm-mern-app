@@ -12,6 +12,9 @@ const ProductList = () => {
     console.log("products", products);
 
     const baseUrl = process.env.REACT_APP_BACKEND_BASEURL;
+    console.log("baseUrl", baseUrl);
+
+
 
     useEffect(() => {
         getProduct();
@@ -24,17 +27,20 @@ const ProductList = () => {
 
     //     setProducts(result);
     // }
+    // let response = await fetch("mongodb+srv://kashifrja105:byJDlRSB0TKR1TLL@mern-appdb.kwggb8y.mongodb.net/?retryWrites=true&w=majority&appName=mern-appdb/products"
 
     const getProduct = async () => {
         try {
             const response = await fetch(`${baseUrl}/product`
-                // ,
-                // {
-                //     headers: {
-                //         authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
-                //     }
-                //
-                //  }
+                // let response = await fetch("http://localhost:5000/product"
+
+                ,
+                {
+                    headers: {
+                        authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+                    }
+
+                }
             );
 
             if (!response.ok) {
@@ -48,6 +54,8 @@ const ProductList = () => {
             console.error("Error fetching product list:", error);
         }
     };
+
+
 
     // const deleteProduct = async (itemId) => {
     //     console.log(itemId);
@@ -206,7 +214,7 @@ const ProductList = () => {
 
                             <tr>
                                 <td colSpan="5" className="text-center">
-                                    <h4>No result Found</h4>
+                                    <h4>No Product Found</h4>
                                 </td>
                             </tr>
                     }

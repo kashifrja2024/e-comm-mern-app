@@ -21,11 +21,13 @@ const AddProduct = () => {
             setError(true)
             return true;
         }
-        const userId = JSON.parse(localStorage.getItem('user')).id;
+        // const userId = JSON.parse(localStorage.getItem('user')).id;
 
         let result = await fetch(`${baseUrl}/add-product`, {
             method: "post",
-            body: JSON.stringify({ name, price, category, company, userId }),
+            // body: JSON.stringify({ name, price, category, company, userId }),
+            body: JSON.stringify({ name, price, category, company }),
+
             headers: {
                 'Content-Type': "application/json",
                 authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
